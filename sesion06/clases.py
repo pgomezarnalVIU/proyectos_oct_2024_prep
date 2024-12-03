@@ -7,7 +7,7 @@
 class Perro:
     # El método __init__ es llamado al crear el objeto
     def __init__(self, nombreIntroducido, raza):
-        print(f"Creando perro {nombre}, {raza}")
+        print(f"Creando perro {nombreIntroducido}, {raza}")
 
         # Atributos de la instancia
         self.nombre = nombreIntroducido
