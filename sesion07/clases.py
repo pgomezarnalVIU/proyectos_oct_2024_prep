@@ -57,5 +57,6 @@ print(f"Especie del pastorAleman es {caniche.especie}")
 caniche.ladra()
 chiuaua.camina(10)
 print(f"El chiuaua ha caminado {chiuaua.pasosTotales}")
+chiuaua.pasosTotales = 20
 chiuaua.camina(5)
 print(f"El chiuaua ha caminado {chiuaua.pasosTotales}")
