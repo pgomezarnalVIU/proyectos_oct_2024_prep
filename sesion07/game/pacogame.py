@@ -28,6 +28,22 @@ class GameObject:
         self.__rect = self.__img.get_rect()
         self.__rect.center = pos_x, pos_y
 
+    #Mover hacia arriba el gameobject
+    def move_up(self,y=5):
+        self.__rect.move_ip(0,-y)
+
+    #Mover hacia derecha el gameobject
+    def move_right(self,x=5):
+        self.__rect.move_ip(x,0)
+
+    #Mover hacia izquierda el gameobject
+    def move_left(self,x=5):
+        self.__rect.move_ip(-x,0)
+
+    #Mover hacia abajo el gameobject
+    def move_down(self,y=5):
+        self.__rect.move_ip(0,y)
+
     #Funcion que devuelve la imagen del game_object
     def get_image(self):
         return self.__img

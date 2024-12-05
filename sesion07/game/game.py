@@ -6,8 +6,8 @@ from pacogame import GameObject
 #Pygame inicializacion
 pygame.init()
 #Variables del tamaño de nuestra ventana
-width=640
-height=480
+width=300
+height=300
 #Surface es el espacio de representacion
 screen = pygame.display.set_mode((width,height))
 
@@ -24,13 +24,13 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.unicode == "w":
-                print("Subir player")
+                player.move_up()
             if event.unicode == "d":
-                print("Derecha player")
+                player.move_right()
             if event.unicode == "a":
-                print("Izquierda player")
+                player.move_left()
             if event.unicode == "s":
-                print("Bajar player")
+                player.move_down()
         if event.type == pygame.QUIT:
             running = False
 
