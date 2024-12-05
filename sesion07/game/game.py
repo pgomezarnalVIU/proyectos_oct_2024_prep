@@ -12,7 +12,7 @@ height=300
 screen = pygame.display.set_mode((width,height))
 
 #Cargar el hero
-player=GameObject("player",width/2,height/2)
+player=GameObject("player",screen,width/2,height/2)
 
 #El juego se ejecute de forma infinita
 running = True
@@ -25,11 +25,11 @@ while running:
         if event.type == pygame.KEYDOWN:
             if event.unicode == "w":
                 player.move_up()
-            if event.unicode == "d":
+            elif event.unicode == "d":
                 player.move_right()
-            if event.unicode == "a":
+            elif event.unicode == "a":
                 player.move_left()
-            if event.unicode == "s":
+            elif event.unicode == "s":
                 player.move_down()
         if event.type == pygame.QUIT:
             running = False

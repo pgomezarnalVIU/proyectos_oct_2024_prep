@@ -13,7 +13,7 @@ import pygame
 class GameObject:
 
     #constructor
-    def __init__(self,tag,pos_x=0,pos_y=0,image="fallenangel.png"):
+    def __init__(self,tag,screen,pos_x=0,pos_y=0,image="fallenangel.png"):
         print(f"Creando el GameObject {tag}")
 
         #Atributos de la instancia
@@ -27,10 +27,13 @@ class GameObject:
         self.__img.convert()
         self.__rect = self.__img.get_rect()
         self.__rect.center = pos_x, pos_y
+        self.__screen = screen
 
     #Mover hacia arriba el gameobject
     def move_up(self,y=5):
-        self.__rect.move_ip(0,-y)
+        #print(self.__rect.y)
+        if (self.__rect.top-y) > 0:
+            self.__rect.move_ip(0,-y)
 
     #Mover hacia derecha el gameobject
     def move_right(self,x=5):
