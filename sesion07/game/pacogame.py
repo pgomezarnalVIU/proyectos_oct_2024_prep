@@ -1,4 +1,6 @@
 import pygame
+from pygame import Surface
+
 
 #Clase GameObject
 #   Atributos
@@ -56,7 +58,10 @@ class GameObject:
 
     #Funcion que actualiza la imagen del game_object
     def set_image(self,img):
-        self.__img = img
+        if isinstance(img, Surface):
+            self.__img = img
+        else:
+            print("Animal!!!!")
 
     #Funcion que devuelve la imagen del game_object
     def get_rect(self):
