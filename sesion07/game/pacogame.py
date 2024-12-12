@@ -1,4 +1,5 @@
 import pygame
+from enum import Enum
 from pygame import Surface
 
 
@@ -66,3 +67,42 @@ class GameObject:
     #Funcion que devuelve la imagen del game_object
     def get_rect(self):
         return self.__rect
+
+# Class Character
+# Atributo
+# - life
+
+class Character(GameObject):
+    # constructor
+    def __init__(self, tag, screen, pos_x=0, pos_y=0, image="fallenangel.png",life=3):
+        super().__init__(tag, screen, pos_x, pos_y, image)
+
+        #Atributo privado
+        self.__life=life
+
+# Class Obstacle
+# Atributo
+# - hurt
+class TypeObstacle(Enum):
+    FURNITURE = 0
+    TRAP = 1
+
+class AmountDamage(Enum):
+    LIGHT = 0
+    HIGH = 1
+
+
+class Obstacle(GameObject):
+    def __init__(self, tag, screen, pos_x=0, pos_y=0, image="fallenangel.png", type_obstacle=TypeObstacle.FURNITURE):
+        super().__init__(tag, screen, pos_x, pos_y, image)
+
+        #Estrutura o condicional ternario
+        #self.__hurt = 0 if type_obstacle == TypeObstacle.FURNITURE else 1
+        if type_obstacle == TypeObstacle.TRAP :
+            self.__damage = AmountDamage.HIGH
+        else:
+            self.__damage  = AmountDamage.LIGHT
+
+
+# Class Item
+# Atributo

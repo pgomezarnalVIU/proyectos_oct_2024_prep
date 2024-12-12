@@ -1,6 +1,6 @@
 #Importamos pygame
 import pygame
-from pacogame import GameObject
+from pacogame import GameObject,Character
 
 #Pygame setup
 #Pygame inicializacion
@@ -13,7 +13,7 @@ screen = pygame.display.set_mode((width,height))
 clock = pygame.time.Clock()
 
 #Cargar el hero
-player=GameObject("player",screen,width/2,height/2)
+player=Character("player",screen,width/2,height/2)
 # Control del movimiento con tecla apretada
 key_press=""
 player_move=False
