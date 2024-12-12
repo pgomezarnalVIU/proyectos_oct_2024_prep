@@ -37,15 +37,18 @@ class GameObject:
 
     #Mover hacia derecha el gameobject
     def move_right(self,x=5):
-        self.__rect.move_ip(x,0)
+        if self.__rect.right+x<self.__screen.get_width():
+            self.__rect.move_ip(x,0)
 
     #Mover hacia izquierda el gameobject
     def move_left(self,x=5):
-        self.__rect.move_ip(-x,0)
+        if self.__rect.left - x > 0:
+            self.__rect.move_ip(-x,0)
 
     #Mover hacia abajo el gameobject
     def move_down(self,y=5):
-        self.__rect.move_ip(0,y)
+        if self.__rect.bottom + y < self.__screen.get_height():
+            self.__rect.move_ip(0,y)
 
     #Funcion que devuelve la imagen del game_object
     def get_image(self):
