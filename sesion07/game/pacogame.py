@@ -54,6 +54,10 @@ class GameObject:
     def get_image(self):
         return self.__img
 
+    #Funcion que actualiza la imagen del game_object
+    def set_image(self,img):
+        self.__img = img
+
     #Funcion que devuelve la imagen del game_object
     def get_rect(self):
         return self.__rect
