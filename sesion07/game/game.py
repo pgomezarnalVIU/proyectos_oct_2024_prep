@@ -1,6 +1,7 @@
 #Importamos pygame
 import pygame
-from pacogame import GameObject,Character
+import random
+from pacogame import GameObject,Character, Obstacle
 
 #Pygame setup
 #Pygame inicializacion
@@ -12,8 +13,29 @@ height=300
 screen = pygame.display.set_mode((width,height))
 clock = pygame.time.Clock()
 
+#Comenzaria a crear los GameObjects
+game_objects_list=[]
+
 #Cargar el hero
 player=Character("player",screen,width/2,height/2)
+#Anyadir los GameObjects a mi lista
+game_objects_list.append(player)
+
+#Anyadir un numero de rocas
+num_rocks = 4
+
+for id_rock in range(num_rocks):
+    rock = Obstacle(f"rock{id_rock}", screen, random.randint(15, width-15), random.randint(15, height-15), "rock.png")
+    #Comprobar si el nuevo GameObject colsiona con TODOS los anteriores
+    for id in range(len(game_objects_list)):
+        #Comprobamos la colisión entre rock y el id
+        if(game_objects_list[id].get_rect().colliderect(rock.get_rect())):
+            rock = Obstacle(f"rock{id_rock}", screen, random.randint(15, width - 15), random.randint(15, height - 15),
+                            "rock.png")
+            id_rock = 0
+    #El nuevo objeto no colisiona
+    game_objects_list.append(rock)
+
 # Control del movimiento con tecla apretada
 key_press=""
 player_move=False
@@ -82,8 +104,9 @@ while running:
             player.move_down(2)
     # fill the screen with a color to wipe away anything from last frame
     screen.fill([188,170,164])
-    #Pintamos el hero
-    screen.blit(player.get_image(),player.get_rect())
+    #Pintamos los objectos
+    for game_object in game_objects_list:
+        screen.blit(game_object.get_image(),game_object.get_rect())
     # RENDER YOUR GAME HERE
     pygame.display.flip()
     clock.tick(60)  # limits FPS to 60

@@ -93,7 +93,7 @@ class AmountDamage(Enum):
 
 
 class Obstacle(GameObject):
-    def __init__(self, tag, screen, pos_x=0, pos_y=0, image="fallenangel.png", type_obstacle=TypeObstacle.FURNITURE):
+    def __init__(self, tag, screen, pos_x=0, pos_y=0, image="rock.png", type_obstacle=TypeObstacle.FURNITURE):
         super().__init__(tag, screen, pos_x, pos_y, image)
 
         #Estrutura o condicional ternario
